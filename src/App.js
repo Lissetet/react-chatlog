@@ -20,7 +20,12 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>{numLikes} ❤️s</h1>
+        <h1>Chat Log</h1>
+        <section>
+          <span className="widget" id="heartWidget">
+            {numLikes} ❤️s
+          </span>
+        </section>
       </header>
       <main>
         <ChatLog entries={messages} onSetLike={setLike} />
