@@ -3,7 +3,7 @@ import './ChatLog.css';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({entries}) => {
+const ChatLog = ({entries, onSetLike}) => {
   const local = entries.length > 0 ? entries[0]?.sender : '';
   entries.forEach((entry) => entry.local = entry.sender === local);
 
@@ -12,12 +12,14 @@ const ChatLog = ({entries}) => {
       {entries.map((entry) => {
         return (
           <ChatEntry
+            id={entry.id}
             key={entry.id}
             sender={entry.sender}
             body={entry.body}
             timeStamp={entry.timeStamp}
             liked={entry.liked}
             local={entry.local}
+            onSetLike={onSetLike}
           />
         );
       })}
@@ -35,6 +37,7 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ).isRequired,
+  onSetLike: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
