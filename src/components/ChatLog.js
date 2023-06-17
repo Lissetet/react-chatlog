@@ -37,12 +37,12 @@ ChatLog.propTypes = {
   localSender: PropTypes.shape({
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
   remoteSender: PropTypes.shape({
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
-  }).isRequired,
-  onSetLike: PropTypes.func.isRequired,
+  }),
+  onSetLike: PropTypes.func,
 };
 
 export default ChatLog;
