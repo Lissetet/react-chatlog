@@ -3,24 +3,20 @@ import './ChatLog.css';
 import PropTypes from 'prop-types';
 import ChatEntry from './ChatEntry';
 
-const ChatLog = ({entries, onSetLike}) => {
-  const local = entries.length > 0 ? entries[0]?.sender : '';
-  entries.forEach((entry) => entry.local = entry.sender === local);
+const ChatLog = ({entries, onSetLike, localSender, remoteSender}) => {
+  entries.forEach((msg) => {
+    msg.local = msg.sender === localSender?.name
+    msg.color = msg.local ? localSender?.color : remoteSender?.color;
+  });
 
   return (
     <div className="chat-log">
-      {entries.map((entry) => {
+      {entries.map((msg) => {
         return (
-          <ChatEntry
-            id={entry.id}
-            key={entry.id}
-            sender={entry.sender}
-            body={entry.body}
-            timeStamp={entry.timeStamp}
-            liked={entry.liked}
-            local={entry.local}
-            onSetLike={onSetLike}
-          />
+        <ChatEntry
+          {...msg}
+          onSetLike={onSetLike}
+        />
         );
       })}
     </div>
@@ -37,6 +33,14 @@ ChatLog.propTypes = {
       liked: PropTypes.bool.isRequired,
     })
   ).isRequired,
+  localSender: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }).isRequired,
+  remoteSender: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+  }).isRequired,
   onSetLike: PropTypes.func.isRequired,
 };
 
