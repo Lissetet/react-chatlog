@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
-import ColorWidget from './components/ColorWidget';
+import Header from './components/Header'
 import './App.css';
 
 const App = () => {
@@ -40,22 +40,15 @@ const App = () => {
     });
   };
 
-  const senderSpan = sender => <span className={sender.color}>{sender.name}</span>;
-
   return (
     <div id="App">
-      <header>
-        <h1>
-          Chat between {senderSpan(localSender)} and {senderSpan(remoteSender)}
-        </h1>
-        <section>
-          <ColorWidget sender={localSender} setColor={setLocalColor} />
-          <span className="widget" id="heartWidget">
-            {`${numLikes} ❤️s`}
-          </span>
-          <ColorWidget sender={remoteSender} setColor={setRemoteColor} />
-        </section>
-      </header>
+      <Header 
+        localSender={localSender}
+        remoteSender={remoteSender}
+        setLocalColor={setLocalColor}
+        setRemoteColor={setRemoteColor}
+        numLikes={numLikes}
+      />
       <main>
         <ChatLog 
           entries={messages} 
