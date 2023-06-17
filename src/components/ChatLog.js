@@ -15,6 +15,7 @@ const ChatLog = ({entries, onSetLike, localSender, remoteSender}) => {
         return (
         <ChatEntry
           {...msg}
+          key={msg.id}
           onSetLike={onSetLike}
         />
         );

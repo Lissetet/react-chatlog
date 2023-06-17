@@ -40,14 +40,13 @@ const App = () => {
     });
   };
 
+  const senderSpan = sender => <span className={sender.color}>{sender.name}</span>;
+
   return (
     <div id="App">
       <header>
         <h1>
-          Chat between&nbsp;
-          <span className={localSender.color}>{localSender.name}</span>
-          &nbsp;and&nbsp;
-          <span className={remoteSender.color}>{remoteSender.name}</span> 
+          Chat between {senderSpan(localSender)} and {senderSpan(remoteSender)}
         </h1>
         <section>
           <ColorWidget sender={localSender} setColor={setLocalColor} />

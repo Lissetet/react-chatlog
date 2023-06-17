@@ -7,7 +7,7 @@ const ChatEntry = (props) => {
   const {id, sender, body, timeStamp, liked, local, color, onSetLike} = props;
   
   return (
-    <div key={id} className={`chat-entry ${local ? 'local' : 'remote'}`}>
+    <div className={`chat-entry ${local ? 'local' : 'remote'}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p className={color}>{body}</p>
