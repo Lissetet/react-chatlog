@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import chatMessages from './data/messages.json';
 import ChatLog from './components/ChatLog';
+import ColorWidget from './components/ColorWidget';
 import './App.css';
 
 const App = () => {
@@ -16,15 +17,6 @@ const App = () => {
 
   const numLikes = messages.filter((message) => message.liked).length;
 
-  const colors = [
-    {color: 'red', emoji: '🔴'},  
-    {color: 'orange', emoji: '🟠'},
-    {color: 'yellow', emoji: '🟡'},
-    {color: 'green', emoji: '🟢'},
-    {color: 'blue', emoji: '🔵'},
-    {color: 'purple', emoji: '🟣'},
-  ]
-
   const setLocalColor = (color) => {
     setLocalSender((prev) => {
       return {...prev, color: color};
@@ -35,26 +27,6 @@ const App = () => {
     setRemoteSender((prev) => {
       return {...prev, color: color};
     });
-  }
-
-  const setColorWidget = (sender, setColor) => {
-    return (
-      <div className="widget">
-        <span>{sender.name}'s color:</span>
-        <div className="colorButtons">
-          {colors.map((color) => {
-            return (
-              <button 
-                key={color.color} 
-                onClick={() => setColor(color.color)}
-              >
-                {color.emoji}
-              </button>
-            );
-        })}
-        </div>
-      </div>
-    )
   }
 
   const setLike = (id) => {
@@ -73,11 +45,11 @@ const App = () => {
       <header>
         <h1>Chat between {localSender.name} and {remoteSender.name}</h1>
         <section>
-          {setColorWidget(localSender, setLocalColor)}
+          <ColorWidget sender={localSender} setColor={setLocalColor} />
           <span className="widget" id="heartWidget">
             {`${numLikes} ❤️s`}
           </span>
-          {setColorWidget(remoteSender, setRemoteColor)}
+          <ColorWidget sender={remoteSender} setColor={setRemoteColor} />
         </section>
       </header>
       <main>

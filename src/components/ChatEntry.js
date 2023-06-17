@@ -7,7 +7,7 @@ const ChatEntry = (props) => {
   const {id, sender, body, timeStamp, liked, local, color, onSetLike} = props;
   
   return (
-    <div className={`chat-entry ${local ? 'local' : 'remote'}`}>
+    <div key={id} className={`chat-entry ${local ? 'local' : 'remote'}`}>
       <h2 className="entry-name">{sender}</h2>
       <section className="entry-bubble">
         <p className={color}>{body}</p>
@@ -27,6 +27,7 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
   local: PropTypes.bool.isRequired,
+  color: PropTypes.string.isRequired,
   onSetLike: PropTypes.func.isRequired,
 };
 
