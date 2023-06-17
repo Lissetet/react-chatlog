@@ -8,11 +8,11 @@ const App = () => {
   const [messages, setMessages] = useState(chatMessages);
   const [localSender, setLocalSender] = useState({
     name: messages[0]?.sender || '',
-    color: 'black'
+    color: ''
   });
   const [remoteSender, setRemoteSender] = useState({
-    name: messages.find((msg) => msg.sender !== messages[0]?.sender)?.sender || '',
-    color: 'black'
+    name: messages.find((msg) => msg.sender !== localSender.name).sender || '',
+    color: ''
   });
 
   const numLikes = messages.filter((message) => message.liked).length;
@@ -43,7 +43,12 @@ const App = () => {
   return (
     <div id="App">
       <header>
-        <h1>Chat between {localSender.name} and {remoteSender.name}</h1>
+        <h1>
+          Chat between&nbsp;
+          <span className={localSender.color}>{localSender.name}</span>
+          &nbsp;and&nbsp;
+          <span className={remoteSender.color}>{remoteSender.name}</span> 
+        </h1>
         <section>
           <ColorWidget sender={localSender} setColor={setLocalColor} />
           <span className="widget" id="heartWidget">
