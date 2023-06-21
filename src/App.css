@@ -6,6 +6,8 @@ body {
 
 #App {
   background-size: cover;
+  min-height: 100vh;
+  height: 100%;
 }
 
 #App.dark {
@@ -20,4 +22,15 @@ body {
 
 main {
   padding: 1rem;
+}
+
+footer {
+  text-align: center;
+  font-weight: bold;
+  padding-bottom: 1.5rem;
+  color: #fff;
+}
+
+a {
+  color: #fff;
 }

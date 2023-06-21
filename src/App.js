@@ -42,6 +42,8 @@ const App = () => {
     });
   };
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <div id="App" className={theme}>
       <Header 
@@ -63,6 +65,9 @@ const App = () => {
           onSetLike={setLike} 
           />
       </main>
+      <footer>
+        Created  by <a href="https://liztrejo.dev">Liz Trejo</a> © {currentYear}
+      </footer>
     </div>
   );
 };
