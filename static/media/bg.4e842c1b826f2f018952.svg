@@ -1,0 +1,11 @@
+<svg viewBox="0 0 3000 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<defs><radialGradient id="grad0" cx="41%" cy="66%" r="100%" fx="41%" fy="66%" gradientUnits="objectBoundingBox">
+					<stop offset="0" stop-color="rgba(59,241,72,1)" stop-opacity="1" />
+					<stop offset="0.5" stop-color="rgba(59,241,72,0)" stop-opacity="0" />
+				</radialGradient>,<radialGradient id="grad1" cx="92%" cy="85%" r="100%" fx="92%" fy="85%" gradientUnits="objectBoundingBox">
+					<stop offset="0" stop-color="rgba(109,189,243,1)" stop-opacity="1" />
+					<stop offset="0.5" stop-color="rgba(109,189,243,0)" stop-opacity="0" />
+				</radialGradient>,<radialGradient id="grad2" cx="42%" cy="19%" r="100%" fx="42%" fy="19%" gradientUnits="objectBoundingBox">
+					<stop offset="0" stop-color="rgba(23,238,180,1)" stop-opacity="1" />
+					<stop offset="0.5" stop-color="rgba(23,238,180,0)" stop-opacity="0" />
+				</radialGradient></defs><rect x="0" y="0" width="3000" height="2000" fill="#07311d" /><rect x="0" y="0" width="3000" height="2000" fill="url(#grad0)" />,<rect x="0" y="0" width="3000" height="2000" fill="url(#grad1)" />,<rect x="0" y="0" width="3000" height="2000" fill="url(#grad2)" /></svg>

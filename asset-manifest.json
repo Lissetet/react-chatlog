@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/react-chatlog/static/css/main.0092901c.css",
-    "main.js": "/react-chatlog/static/js/main.d90865be.js",
+    "main.css": "/react-chatlog/static/css/main.6b1a71ab.css",
+    "main.js": "/react-chatlog/static/js/main.802221ba.js",
+    "static/media/iphone.svg": "/react-chatlog/static/media/iphone.f270059db8ea5abb71c6.svg",
+    "static/media/iphoneDark.svg": "/react-chatlog/static/media/iphoneDark.ec1dfd1c0aa57ec8f197.svg",
+    "static/media/bg.svg": "/react-chatlog/static/media/bg.4e842c1b826f2f018952.svg",
     "index.html": "/react-chatlog/index.html",
-    "main.0092901c.css.map": "/react-chatlog/static/css/main.0092901c.css.map",
-    "main.d90865be.js.map": "/react-chatlog/static/js/main.d90865be.js.map"
+    "main.6b1a71ab.css.map": "/react-chatlog/static/css/main.6b1a71ab.css.map",
+    "main.802221ba.js.map": "/react-chatlog/static/js/main.802221ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.0092901c.css",
-    "static/js/main.d90865be.js"
+    "static/css/main.6b1a71ab.css",
+    "static/js/main.802221ba.js"
   ]
 }
