@@ -1,0 +1,62 @@
+.colorButtons {
+  gap: 0.5rem;
+  display: flex;
+  margin-top: .5rem;
+  align-items: center;
+}
+
+.colorButtons button {
+  border-radius: 50%;
+}
+
+.color-bubble {
+  background-color: var(--color);
+  width: 1rem;
+  height: 1rem;
+}
+
+.selected {
+  border: 2px solid white;
+}
+
+.red {
+  --color: #d97474;
+  color: white;
+}
+
+.orange {
+  --color: #ed9c45;
+  color: white;
+}
+
+.yellow {
+  --color: #edd200;
+  color: black;
+}
+
+.yellow .entry-time {
+  text-shadow: none;
+}
+
+.green {
+  --color: #64926b;
+  color: white;
+}
+
+.blue {
+  --color: #5a7ea9;
+  color: white;
+}
+
+.purple {
+  --color: #8458a4;
+  color: white;
+}
+
+.default.remote, header h1 span {
+  --color: #0B93F6;
+}
+
+.default.local {
+  --color: #E5E5EA;
+}

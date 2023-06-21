@@ -1,4 +1,25 @@
 .chat-log {
-  margin: auto;
-  max-width: 50rem;
+  margin: 0.5rem auto;
+  width: 20rem;
+  height: 40rem;
+  background-size: cover;
+}
+
+.light .chat-log {
+  background-image: url('iphone.svg');
+}
+
+.dark .chat-log {
+  background-image: url('iphoneDark.svg');
+}
+
+.entries-container {
+  position: relative;
+  top: 4rem;
+  left: 10px;
+  width: calc(100% - 22px - 2rem);
+  padding: 0 1rem;
+  height: calc(40rem - 74px);
+  border-radius: 0 0 42px 42px;
+  overflow: auto;
 }

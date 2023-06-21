@@ -7,19 +7,21 @@ const ChatLog = ({entries, onSetLike, localSender, remoteSender}) => {
   entries.forEach((msg) => {
     msg.local = msg.sender === localSender?.name
     msg.color = msg.local ? localSender?.color : remoteSender?.color;
+    msg.key = msg.id;
   });
 
   return (
     <div className="chat-log">
-      {entries.map((msg) => {
-        return (
-        <ChatEntry
-          {...msg}
-          key={msg.id}
-          onSetLike={onSetLike}
-        />
-        );
-      })}
+      <div className="entries-container">
+        {entries.map((msg) => {
+          return (
+          <ChatEntry
+            {...msg}
+            onSetLike={onSetLike}
+          />
+          );
+        })}
+      </div>
     </div>
   );
 };

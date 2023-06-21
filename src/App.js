@@ -14,6 +14,8 @@ const App = () => {
     name: messages.find((msg) => msg.sender !== localSender.name).sender || '',
     color: ''
   });
+  const [theme, setTheme] = useState('light');
+  const [settingsClass, setSettingsClass] = useState('');
 
   const numLikes = messages.filter((message) => message.liked).length;
 
@@ -41,12 +43,16 @@ const App = () => {
   };
 
   return (
-    <div id="App">
+    <div id="App" className={theme}>
       <Header 
         localSender={localSender}
         remoteSender={remoteSender}
+        theme={theme}
+        settingsClass={settingsClass}
         setLocalColor={setLocalColor}
         setRemoteColor={setRemoteColor}
+        setTheme={setTheme}
+        setSettingsClass={setSettingsClass}
         numLikes={numLikes}
       />
       <main>

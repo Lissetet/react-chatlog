@@ -1,65 +1,41 @@
 #App header {
-  background-color: #222;
+  background: rgba(0,0,0,.6);
   color: #fff;
-  padding-bottom: 0.5rem;
-  position: fixed;
-  width: 100%;
-  z-index: 100;
   text-align: center;
   align-items: center;
 }
 
-#App h1 {
-  font-size: 1.5em;
-  text-align: center;
-  display: inline-block;
+h1, #App header section:first-of-type {
+  font-size: 24px;
+}
+
+#App header section:first-of-type {
+  display: flex;
+  align-items: center;
+}
+
+#App header h1::before, #App header h1::after {
+  content: '·';
+  margin: 0 2rem;
 }
 
 #App header section {
-  background-color: #e0ffff;
-  color: black;
+  display: flex;
   font-weight: 700;
-  padding-top: 1rem;
+  justify-content: center;
 }
 
-#App .widget {
-  display: inline-block;
-  line-height: 1em;
-  border-radius: 10px;
-  font-size:1em;
-  padding-left: 1em;
-  padding-right: 1em;
+#App header section:last-of-type {
+  padding: 1rem 0;
+  gap: 3rem;
 }
 
-#App #heartWidget {
-  font-size: 1.5em;
-  margin: 1em; 
+.sender-span {
+  background: var(--color);
+  padding: .3rem;
+  border-radius: .5rem;
 }
 
-#App span {
-  display: inline-flex;
-}
-
-.red {
-  color: #b22222
-}
-
-.orange {
-  color: #e6ac00
-}
-
-.yellow {
-  color: #e6e600
-}
-
-.green {
-  color: green
-}
-
-.blue {
-  color: blue
-}
-
-.purple {
-  color: purple
+#settings.hidden {
+  display: none;
 }

@@ -1,28 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
+import './ColorWidget.css';
 
-const ColorWidget = ({sender, setColor}) => {
-  const colors = [
-    {color: 'red', emoji: '🔴'},  
-    {color: 'orange', emoji: '🟠'},
-    {color: 'yellow', emoji: '🟡'},
-    {color: 'green', emoji: '🟢'},
-    {color: 'blue', emoji: '🔵'},
-    {color: 'purple', emoji: '🟣'},
-  ]
+const ColorWidget = ({sender, setColor, type}) => {
+  const [colors, setColors] = useState([
+    { color: 'default', active: true},
+    { color: 'red', active: false },
+    { color: 'orange', active: false },
+    { color: 'yellow', active: false },
+    { color: 'green', active: false },
+    { color: 'blue', active: false },
+    { color: 'purple', active: false },
+  ]);
+
+  const handleColorChange = (e, color) => {
+    setColors(colors.map((current) => {
+      current.active = current.color === color.color;
+      return current;
+    }));
+    setColor(color.color);
+  };
 
   return (
-    <div className="widget">
+    <div id={`${type}ColorWidget`}>
       <span>{sender.name}'s color:</span>
       <div className="colorButtons">
         {
-          colors.map((color) => {
+          colors.map((current) => {
+            const {color, active} = current;
+            const bubbleClasses = `${color} ${type} ${active ? 'selected' : ''}`;
             return (
-              <button 
-                key={color.color} 
-                onClick={() => setColor(color.color)}
+              <button
+                key={color}
+                onClick={(e) => handleColorChange(e, current)}
+                className={`color-bubble ${bubbleClasses}`}
               >
-                {color.emoji}
               </button>
             );
           })
@@ -38,6 +50,7 @@ ColorWidget.propTypes = {
     color: PropTypes.string.isRequired,
   }).isRequired,
   setColor: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 export default ColorWidget;

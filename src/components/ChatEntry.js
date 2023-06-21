@@ -5,16 +5,22 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = (props) => {
   const {id, sender, body, timeStamp, liked, local, color, onSetLike} = props;
+  const entryClass = `${local ? 'local' : 'remote'} ${color || 'default'}`;
   
   return (
-    <div className={`chat-entry ${local ? 'local' : 'remote'}`}>
-      <h2 className="entry-name">{sender}</h2>
-      <section className="entry-bubble">
-        <p className={color}>{body}</p>
+    <div className={`chat-entry ${entryClass}`}>
+      <div className="entry-header">
+        <h2 className="entry-name">{sender}</h2>
         <p className="entry-time">
           <TimeStamp time={timeStamp} />
         </p>
-        <button className="like" onClick={() => onSetLike(id)}>
+      </div>
+      <section className="entry-bubble">
+        <p>{body}</p>
+        <button 
+          className={`like ${!liked ? 'like-outline' : null}`} 
+          onClick={() => onSetLike(id)}
+        >
           {liked ? '❤️' : '🤍'}
         </button>
       </section>
