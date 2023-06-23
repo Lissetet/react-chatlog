@@ -5,7 +5,7 @@ import ChatEntry from './ChatEntry';
 
 const ChatLog = ({entries, onSetLike, localSender, remoteSender}) => {
   entries.forEach((msg) => {
-    msg.local = msg.sender === localSender?.name
+    msg.local = msg.sender === localSender?.name;
     msg.color = msg.local ? localSender?.color : remoteSender?.color;
     msg.key = msg.id;
   });
@@ -44,7 +44,7 @@ ChatLog.propTypes = {
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
   }),
-  onSetLike: PropTypes.func,
+  onSetLike: PropTypes.func.isRequired,
 };
 
 export default ChatLog;
